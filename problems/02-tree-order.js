@@ -19,14 +19,33 @@ function preOrderArray(root) {
 // and returns an array containing the values from an in-order
 // traversal.
 function inOrderArray(root) {
-    // Your code here
+    //combined method = concat
+    //populate array = .push
+    //at end, return all combined
+    let newArr = [];
+    if (root === null) {
+        return [];
+    }
+
+    let miniArrLeft = inOrderArray(root.left);
+    newArr.push(root.val);
+    let miniArrRight = inOrderArray(root.right);
+    let combinedArr = miniArrLeft.concat(newArr.concat(miniArrRight))
+    // let combined = [...miniArrLeft, newArr, ...miniArrRight]
+    return combinedArr
+
 }
 
 // Implement a function that takes the root of a Binary Tree
 // and returns an array containing the values from a post-order
 // traversal.
 function postOrderArray(root) {
-    // Your code here
+    let newArr = [];
+    if (root === null) {
+        return [];
+    }
+
+    
 }
 
 
