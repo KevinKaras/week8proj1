@@ -39,14 +39,28 @@ function inOrderArray(root) {
 // Implement a function that takes the root of a Binary Tree
 // and returns an array containing the values from a post-order
 // traversal.
-function postOrderArray(root) {
-    let newArr = [];
-    if (root === null) {
-        return [];
-    }
-
+// function postOrderArray(root) {
     
+//     if (root === null) {
+//         return [];
+//     }
+//     let miniArrLeft = postOrderArray(root.left);
+//     let miniArrRight = postOrderArray(root.right);
+//     return miniArrLeft.concat(miniArrRight.concat(root.val));
+    
+    
+// }
+
+function postOrderArray(root, array = []){
+    if (root === null){
+        return []
+    }
+    postOrderArray(root.left, array);
+    postOrderArray(root.right, array);
+    array.push(root.val);
+    return array;
 }
+
 
 
 module.exports = {
